@@ -1,0 +1,40 @@
+#include <iostream>
+#include <algorithm>
+#include <unordered_set> // Ініціалізація з використанням масиву, що використовується для зберігання та вилучення даних
+
+// Функція для підрахунку кількості різних чисел у масиві
+int countUniqueNumbers(int arr[], int size) {
+	std::unordered_set<int> uniqueNumbers(arr, arr + size);
+	return uniqueNumbers.size();
+}
+// Функція для перетворення масиву
+void rearrangeArray(int arr[], int size) {
+// Розділення масиву на додатні та від'ємні елементи
+	std::partition(arr, arr + size, [](int x) { return x >= 0; });
+}
+
+int main() {
+	int m;
+	setlocale(LC_ALL, "Ukr"); //Обробка кирилиці 
+	// Введення розміру масиву
+	std::cout << "Введіть розмір масиву: ";
+	std::cin >> m;
+	int*A = new int [m]; // Оголошення масиву
+	// Введення елементів масиву
+	std::cout << "Введіть елемент масиву: ";
+	for (int i = 0; i < m; ++i) {
+		std::cout << "A[" << i << "]: ";
+		std::cin >> A[i];
+	}
+	// Виклик функції та виведення результату
+	int uniqueCount = countUniqueNumbers(A, m);
+	std::cout << "Кількість різних чисел в масиві: " << uniqueCount << std::endl;
+	rearrangeArray(A, m); // Перестановка масиву
+	// Виведення результатів перетвореного масиву
+	std::cout << "Масив після перетворення: ";
+	for (int i = 0; i < m; ++i) {
+		std::cout << A[i] << " ";
+	}
+	delete[] A; // Оператор для звільнення пам'яті після використання масиву
+	return 0;
+}

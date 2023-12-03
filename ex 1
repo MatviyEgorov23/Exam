@@ -1,5 +1,5 @@
 #include <iostream>
-#include <algorithm>
+#include <algorithm> // заголовний файл, що включає набір функцій для виконання алгоритмічних операцій
 #include <unordered_set> // Ініціалізація з використанням масиву, що використовується для зберігання та вилучення даних
 
 // Функція для підрахунку кількості різних чисел у масиві
@@ -7,7 +7,7 @@ int countUniqueNumbers(int arr[], int size) {
 	std::unordered_set<int> uniqueNumbers(arr, arr + size);
 	return uniqueNumbers.size();
 }
-// Функція для перетворення масиву
+// Функція для перегрупування масиву
 void rearrangeArray(int arr[], int size) {
 // Розділення масиву на додатні та від'ємні елементи
 	std::partition(arr, arr + size, [](int x) { return x >= 0; });
@@ -27,7 +27,7 @@ int main() {
 		std::cin >> A[i];
 	}
 	// Виклик функції та виведення результату
-	int uniqueCount = countUniqueNumbers(A, m);
+	int uniqueCount = countUniqueNumbers(A, m); // алгоритм, який потрібен для того, щоб однакові елементи йшли поряд один з одним
 	std::cout << "Кількість різних чисел в масиві: " << uniqueCount << std::endl;
 	rearrangeArray(A, m); // Перестановка масиву
 	// Виведення результатів перетвореного масиву
